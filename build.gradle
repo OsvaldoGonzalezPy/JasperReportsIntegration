@@ -54,13 +54,13 @@ import org.gradle.internal.os.OperatingSystem
   project.description       = "JasperReportsIntegration - more details here: https://github.com/daust/JasperReportsIntegration"
   project.version           = '3.0.0'
   
-  sourceCompatibility       = 1.8
-  targetCompatibility       = 1.8
+  sourceCompatibility       = 17
+  targetCompatibility       = 17
 
   archivesBaseName          = "jri"
 
   // version of jasperreports to be used
-  def jasperreportsVersion  ='7.0.1'  
+  def jasperreportsVersion  ='7.0.6'  
 
   // Download Oracle JDBC drivers, must be the full version:
   // https://www.oracle.com/database/technologies/appdev/jdbc-ucp-19c-downloads.html
@@ -192,7 +192,8 @@ dependencies {
 
     // https://mvnrepository.com/artifact/net.sf.jasperreports/jasperreports-velocity
     // will include that because users might be using velocity syntax in their reports
-    implementation group: 'net.sf.jasperreports', name: 'jasperreports-velocity', version: "$jasperreportsVersion"
+    // Deprecated for 7.0.6 CE
+	// implementation group: 'net.sf.jasperreports', name: 'jasperreports-velocity', version: "$jasperreportsVersion"
 
     // https://mvnrepository.com/artifact/net.sf.jasperreports/jasperreports-charts
     implementation group: 'net.sf.jasperreports', name: 'jasperreports-charts', version: "$jasperreportsVersion"
@@ -217,7 +218,8 @@ dependencies {
 
     // https://mvnrepository.com/artifact/net.sf.jasperreports/jasperreports-interactivity
     // no, no JavaScript interactivity supported / required
-    implementation group: 'net.sf.jasperreports', name: 'jasperreports-interactivity', version: "$jasperreportsVersion"
+    // Deprecated for 7.0.6 CE
+	//implementation group: 'net.sf.jasperreports', name: 'jasperreports-interactivity', version: "$jasperreportsVersion"
 
     // https://mvnrepository.com/artifact/net.sf.jasperreports/jasperreports-javascript
     // no, no JavaScript interactivity supported / required
@@ -235,10 +237,12 @@ dependencies {
     implementation group: 'net.sf.jasperreports', name: 'jasperreports-spring', version: "$jasperreportsVersion"
 
     // https://mvnrepository.com/artifact/net.sf.jasperreports/jasperreports-chrome
-    implementation group: 'net.sf.jasperreports', name: 'jasperreports-chrome', version: "$jasperreportsVersion"
+    // Deprecated for 7.0.6 CE
+	// implementation group: 'net.sf.jasperreports', name: 'jasperreports-chrome', version: "$jasperreportsVersion"
 
     // https://mvnrepository.com/artifact/net.sf.jasperreports/jasperreports-google-maps
-    implementation group: 'net.sf.jasperreports', name: 'jasperreports-google-maps', version: "$jasperreportsVersion"
+    // Deprecated for 7.0.6 CE
+	// implementation group: 'net.sf.jasperreports', name: 'jasperreports-google-maps', version: "$jasperreportsVersion"
 
     // https://mvnrepository.com/artifact/net.sf.jasperreports/jasperreports-data-adapters-http
     // no, no data source over http required

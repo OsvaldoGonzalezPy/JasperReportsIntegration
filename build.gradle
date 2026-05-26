@@ -52,10 +52,10 @@ import org.gradle.internal.os.OperatingSystem
 //-----------------------------------------------------------------------------
 
   project.description       = "JasperReportsIntegration - more details here: https://github.com/daust/JasperReportsIntegration"
-  project.version           = '3.0.0'
+  project.version           = '3.1.1'
   
-  sourceCompatibility       = 17
-  targetCompatibility       = 17
+  sourceCompatibility       = 21
+  targetCompatibility       = 21
 
   archivesBaseName          = "jri"
 
@@ -473,7 +473,7 @@ distributions {
             //from('src/doc/User-Documentation'){into 'doc' filter(ReplaceTokens, tokens: ['project.version': project.version, 'jasperreports.version': jasperreportsVersion])}
             from('src/doc/Documentation.html'){ filter(ReplaceTokens, tokens: ['project.version': project.version, 'jasperreports.version': jasperreportsVersion])}
             from('src/reports'){into 'reports'}
-            from (war.outputs){into 'webapp' rename(war.archiveName , "jri.war")}
+            from (war.outputs){into 'webapp' rename(war.archiveFileName.get() , "jri.war")}
 
             from (configurations.runtimeClasspath){include "jasperreports-${jasperreportsVersion}.jar" into 'lib'}
             from (jar.outputs){into 'lib'}
@@ -487,7 +487,7 @@ println "Version: " + project.version
 println "Source-Compatibility: " + project.sourceCompatibility
 println "Project description: " + project.property("description")
 println "jasperreports version: " + jasperreportsVersion
-println "War file name: " + war.archiveName // this will pick up the modified name defined in war{}
+println "War file name: " + war.archiveFileName.get() // this will pick up the modified name defined in war{}
 println "local environment OC_JASPER_CONFIG_HOME=" + System.getenv( "OC_JASPER_CONFIG_HOME")
 println "***********************************************\n\n"
 
